@@ -282,37 +282,50 @@ Generate Test Activity → Collect Logs → Analyze → Correlate → Validate �
 
 ## 12. Supporting Evidence
 
+The following artifacts support the controlled
+authentication investigation.
+
 | Evidence | Description | Status |
 |---|---|---|
-| Audit Policy Verification | Authentication Success and Failure auditing | Verified |
-| Failed Authentication | Windows `runas` error 1326 | Captured |
-| Security Event 4625 | Failed interactive logon | Verified |
-| Security Event 4771 | Kerberos pre-authentication failure | Verified |
-| CSV and TXT Evidence | Exported authentication records | Created |
-| Export Count Validation | Two records accounted for | Verified |
-| SHA-256 Integrity Verification | Cryptographic integrity check | Not performed |
-| Public Screenshots | Sanitized investigation evidence | Pending upload |
+| Audit policy | Authentication auditing | Verified |
+| Failed authentication | Windows runas error 1326 | Captured |
+| Event 4625 | Failed interactive logon | Verified |
+| Event 4771 | Kerberos pre-authentication failure | Verified |
+| CSV/TXT exports | Security event records | Created |
+| Export validation | Two records accounted for | Verified |
+| SHA-256 integrity check | Not performed | Not performed |
+| Public screenshots | Three supporting screenshots | Published |
 
 ### Evidence A — Authentication Failure
 
-**Planned screenshot:** `evidence/INC-001-Authentication-Failure.png`
+![Authentication failure](evidence/INC-001-Authentication-Failure.png)
 
-Demonstrates the controlled `runas` authentication failure.
+**Observation:** A controlled incorrect-password attempt
+returned Windows error 1326.
 
-### Evidence B — Security Event Investigation
+### Evidence B — Security Event Collection
 
-**Planned screenshot:** `evidence/INC-001-Security-Events.png`
+![Security event collection](evidence/INC-001-Security-Events.png)
 
-Shows Windows Security Events 4625 and 4771 and their relevant details.
+**Observation:** PowerShell commands collected and exported
+the relevant Security events.
+
+**Limitation:** The screenshot does not display the
+full contents of the individual events.
 
 ### Evidence C — Export Validation
 
-**Planned screenshot:** `evidence/INC-001-Export-Validation.png`
+![Export validation](evidence/INC-001-Export-Validation.png)
 
-Demonstrates the PowerShell verification of exported event counts.
+**Verification:** The CSV contained one Event 4625
+and one Event 4771.
 
-All public screenshots will be reviewed and sanitized before publication.
+### Evidence Handling and Limitations
 
+Original event exports remain private. Cryptographic
+integrity hashing was not performed during collection.
+
+This was a controlled lab test, not a malicious incident.
 ---
 
 ## Conclusion
