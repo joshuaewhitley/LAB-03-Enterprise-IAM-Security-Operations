@@ -195,30 +195,42 @@ The exercise demonstrates how security analysts can identify incomplete access t
 
 ## 10. Supporting Evidence
 
-The following evidence was collected during the exercise:
+The following artifacts document the identification,
+remediation, and verification of IAM-001.
 
 | Evidence | Description | Status |
 |---|---|---|
-| Initial membership baseline | Pre-transfer group memberships | Captured |
-| Department transfer | Employee assigned to IT with obsolete Finance membership retained | Captured |
-| Detection output | PowerShell evidence of excessive membership | Captured |
-| Remediation | Removal of GG-Finance membership | Executed |
-| Verification output | GG-Employees and GG-IT memberships confirmed | Captured |
+| Initial membership review | Baseline group assignments | Captured |
+| Department transfer | Obsolete Finance membership retained | Verified |
+| Detection evidence | Excessive membership identified | Verified |
+| Remediation | GG-Finance membership removed | Executed |
+| Post-remediation verification | Correct memberships confirmed | Verified |
 
 ### Evidence A — Before Remediation
 
-**Planned screenshot:** `evidence/IAM-001-Before.png`
+![IAM-001 Before Remediation](evidence/IAM-001-Before.png)
 
-Shows Taylor Reed's IT department assignment and the retained Finance membership.
+**Observation:** Taylor Reed's department was IT, but
+GG-Finance membership remained assigned.
+
+**Security finding:** Potential excessive authorization
+caused by an incomplete department-transfer workflow.
 
 ### Evidence B — After Remediation
 
-**Planned screenshot:** `evidence/IAM-001-After.png`
+![IAM-001 After Remediation](evidence/IAM-001-After.png)
 
-Shows the corrected Active Directory memberships following remediation.
+**Remediation:** Removed obsolete GG-Finance membership.
 
-Screenshots will be sanitized and uploaded separately. Raw or unreviewed evidence will not be published.
+**Verification:** GG-Employees and GG-IT remained assigned;
+GG-Finance was absent.
 
+### Evidence Assessment
+
+The screenshots demonstrate directory-level remediation.
+Resource-level authorization testing was not performed.
+
+**Evidence handling:** Fictional lab identities only.
 ---
 
 ## Conclusion
